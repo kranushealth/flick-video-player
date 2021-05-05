@@ -94,14 +94,14 @@ class FlickPortraitControls extends StatelessWidget {
                           ),
                         ],
                       ),
-                      if (includeFullScreenToggle)
-                        Expanded(
-                          child: Container(),
-                        ),
-                      if (includeFullScreenToggle)
-                        FlickFullScreenToggle(
-                          size: iconSize,
-                        ),
+                      Expanded(
+                        child: Container(),
+                      ),
+                      includeFullScreenToggle
+                          ? FlickFullScreenToggle(
+                              size: iconSize,
+                            )
+                          : Container(),
                     ],
                   ),
                 ],

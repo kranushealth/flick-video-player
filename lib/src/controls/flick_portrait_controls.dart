@@ -3,12 +3,13 @@ import 'package:flick_video_player/flick_video_player.dart';
 
 /// Default portrait controls.
 class FlickPortraitControls extends StatelessWidget {
-  const FlickPortraitControls(
-      {Key? key,
-      this.iconSize = 20,
-      this.fontSize = 12,
-      this.progressBarSettings})
-      : super(key: key);
+  const FlickPortraitControls({
+    Key? key,
+    this.iconSize = 20,
+    this.fontSize = 12,
+    this.progressBarSettings,
+    this.includeFullScreenToggle = false,
+  }) : super(key: key);
 
   /// Icon size.
   ///
@@ -22,6 +23,8 @@ class FlickPortraitControls extends StatelessWidget {
 
   /// [FlickProgressBarSettings] settings.
   final FlickProgressBarSettings? progressBarSettings;
+
+  final bool includeFullScreenToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -91,12 +94,14 @@ class FlickPortraitControls extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Expanded(
-                        child: Container(),
-                      ),
-                      FlickFullScreenToggle(
-                        size: iconSize,
-                      ),
+                      if (includeFullScreenToggle)
+                        Expanded(
+                          child: Container(),
+                        ),
+                      if (includeFullScreenToggle)
+                        FlickFullScreenToggle(
+                          size: iconSize,
+                        ),
                     ],
                   ),
                 ],
